@@ -7,11 +7,12 @@ function initialize() {
         };
         var map = new google.maps.Map(document.getElementById("map-canvas"),
             mapOptions);
-        var pictures = [
-                              ['Manhattan Kitten', 40.7634985, -73.9732865, '<%= asset_path 'kitten1.jpg' %>'],
-                              ['Brooklyn Kitten', 40.7168335, -73.9619632, '<%= asset_path 'Kittens-kiss.jpg' %>'],
-                              ['Lower Manhattan Kitten', 40.7134064, -74.0013531, '<%= asset_path 'kitten1.jpg' %>']
-                              ];      
+
+        var pictures = [];      
+        <% @post.each do |post| %>
+        pictures << ['<%=post.title %>','<%=post.latitude %>', '<%= post.longitude %>', '<%= post.image %>'];
+        <% end %>
+                              
 
         var marker, i;
          for (i = 0; i < pictures.length; i++) {  
@@ -22,6 +23,7 @@ function initialize() {
             icon: pictures[i][3],
             animation: google.maps.Animation.DROP
           });
+
 
           google.maps.event.addListener(marker, 'click', (function(marker, i) {
             return function() {

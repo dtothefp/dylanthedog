@@ -1,5 +1,9 @@
 class PostsController < ApplicationController
 
+  def index
+    @post = Post.all
+  end
+
   def new
     @post = Post.new
   end
@@ -19,21 +23,11 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     
-      # if @post.image_content_type == "image/jpeg"
-      #  gps_jpg = EXIFR::JPEG.new(@post.image).gps?  
-      #   if gps_jpg
-      #     @message = "JPG image has GPS Metadata"
-      #   else
-      #     @message = "No GPS Metadata for JPG"
-      #   end
-      # elsif @post.image_content_type == "image/png"
-      #  gps_png = EXIFR::PNG.new(@post.image).gps?   
-      #   if gps_png
-      #       @message = "PNG image has GPS Metadata"
-      #   else
-      #      @message = "No GPS Metadata for PNG"
-      #   end
-      # end
+    if @post.latitude.nil? || @post.longitude.nil?
+      @message = "Please find your location on the map"
+    else
+      @message = "Your coordinates uploaded Successfully"
+    end
   end
 
   private
