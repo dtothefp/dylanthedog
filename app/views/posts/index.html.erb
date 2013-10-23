@@ -1,7 +1,7 @@
 <% @posts.each do |post| %>
 <ul>
   <li id="title"><%= post.title %></li>
-  <li id="img"><%= post.image.options[:path] %></li>
+  <li id="img"><%= post.image.url %></li>
   <li id="lat"><%= post.latitude %></li>
   <li id="long"><%= post.longitude %></li>
 </ul>
