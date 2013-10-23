@@ -1,0 +1,13 @@
+index.html.erb
+
+<%= debug params %>
+
+<ul>
+  <li><%= image_tag Post.find(params[:id_1]).image(:medium) %></li>
+  <li><%=  link_to "Vote", vote_path(params[:id_1]) %></li>
+</ul>
+
+<ul>
+  <li><%= image_tag Post.find(params[:id_2]).image(:medium) %></li>
+  <li><%= link_to "Vote", vote_path(params[:id_2]) %></li>
+</ul>
