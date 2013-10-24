@@ -48,6 +48,8 @@ gem 'aws-sdk', '~> 1.22.1'
 
 gem 'exifr', '~> 1.1.3'
 
+gem "gmaps4rails", "~> 2.0.3"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
