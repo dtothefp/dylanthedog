@@ -11,7 +11,6 @@ class Post < ActiveRecord::Base
 
   def load_exif
    exif_img = EXIFR::JPEG.new(image.queued_for_write[:custom].path)
-   binding.pry
     if !exif_img.gps.nil?
      self.latitude = exif_img.gps.latitude
      self.longitude = exif_img.gps.longitude
