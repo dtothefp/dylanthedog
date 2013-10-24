@@ -5,8 +5,7 @@ Dylanthedog::Application.routes.draw do
 
   resource :session, only: [:new, :create, :destroy]
 
-  resources :votes, only: [:index, :show]
-  get '/votes/:id_1/:id_2', to: 'votes#index'
+  resources :votes, only: [:new, :create]
 
   root 'static#index'
 

@@ -11,3 +11,9 @@ index.html.erb
   <li><%= image_tag Post.find(params[:id_2]).image(:medium) %></li>
   <li><%= link_to "Vote", vote_path(params[:id_2]) %></li>
 </ul>
+
+<h1>
+    <% if !@vote_message.nil? %>
+     <%= @vote_message %>
+    <% end %>
+</h1>

@@ -1,0 +1,54 @@
+function initialize() {
+        var myLatlng = new google.maps.LatLng(40.7478666, -73.990522)
+        var mapOptions = {
+          center: myLatlng,
+          zoom: 12,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("location-map"),
+            mapOptions);
+
+        var title = document.getElementById('title');
+        var titleData = plant.getAttribute('data-title');
+
+        var title = document.getElementById('lat');
+        var latData = plant.getAttribute('data-lat');
+
+        var title = document.getElementById('long');
+        var longData = plant.getAttribute('data-long');
+
+        var title = document.getElementById('thumb-url');
+        var thumbData = plant.getAttribute('data-thumb_url');
+
+        // var marker, i;
+        //  for (i = 0; i < pictures.length; i++) {  
+        //   marker = new google.maps.Marker({
+        //     position: new google.maps.LatLng(pictures[i][1], pictures[i][2]),
+        //     map: map,
+        //     title: pictures[i][0],
+        //     icon: pictures[i][3],
+        //     animation: google.maps.Animation.DROP
+        //   });
+
+
+        //   google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        //     return function() {
+        //       infowindow.setContent(pictures[i][0]);
+        //       infowindow.open(map, marker);
+        //     }
+        //   })(marker, i));
+        // }
+      }
+      console.log( "INITIALIZED!" );
+
+function loadScript() {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src = 'https://maps.googleapis.com/maps/api/js?https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true&' +
+      'callback=initialize';
+  document.body.appendChild(script);
+
+  console.log( "LOADED!" );
+}
+
+window.onload = loadScript;

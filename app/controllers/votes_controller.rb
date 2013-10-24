@@ -29,11 +29,24 @@ class VotesController < ApplicationController
   end
 
   def show
-    post = Post.find(params[:id])
-    post.votes = post.votes + 1
-    post.save
+    #allow user to only make one vote for a given post
+    if session[:votes].nil?
+      session[:votes] = []
+    end
 
-    redirect_to "/votes"
+    
+    if !session[:votes].include?(params[:id])
+      post = Post.find(params[:id])
+      post.votes += 1
+      post.save
+      session[:votes] << params[:id]
+      binding.pry
+      redirect_to "/votes"
+    else
+      @vote_message = "You have already voted for this photo, please choose another"
+      render :index
+    end
+
   end
 
   private

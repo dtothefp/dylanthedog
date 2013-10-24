@@ -9,7 +9,7 @@
       <style type="text/css">
         html { height: 100% }
         body { height: 100%; margin: 0; padding: 0 }
-        #map-canvas { height: 800px; }
+        #map-canvas, #location-map { height: 800px; }
       </style>
   </head>
   <body data-no-turbolink>
@@ -20,7 +20,11 @@
           <li><%= link_to 'Logout', session_path, :method => :delete %></li>
           <li><%= link_to 'Vote', votes_path %></li>
           <li><%= link_to 'Location Map', posts_path %></li>
-          <% else %>
+          <input type="button" onclick="display_alert()" value="Javascript Alert">
+          <input type="button" id="alert" value="JQuery Alert">
+        <% else %>
+          <input type="button" onclick="display_alert()" value="Javascript Alert">
+          <input type="button" id="alert" value="JQuery Alert">
           <li><%= link_to 'Sign-Up', new_user_path %></li>
           <li><%=  link_to 'Login', new_session_path %></li>
           <li><%= link_to 'Vote', votes_path %></li>
