@@ -1,0 +1,19 @@
+index.html.erb
+
+<%= debug params %>
+
+<ul>
+  <li><%= image_tag @random_dogs.first.image(:medium) %></li>
+  <li><%= link_to "Vote", votes_path(:post_id => @random_dogs.first.id), :method => :post %></li>
+</ul>
+
+<ul>
+  <li><%= image_tag @random_dogs.last.image(:medium) %></li>
+  <li><%= link_to "Vote", votes_path(:post_id => @random_dogs.last.id), :method => :post %></li>
+</ul>
+
+<h1>
+    <% if !@vote_message.nil? %>
+     <%= @vote_message %>
+    <% end %>
+</h1>
