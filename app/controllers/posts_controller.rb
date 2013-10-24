@@ -2,6 +2,18 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all
+
+    @posts = Post.all
+      @hash = Gmaps4rails.build_markers(@posts) do |post, marker|
+        marker.lat post.latitude.to_f
+        marker.lng post.longitude.to_f
+        marker.picture({
+                  :url => post.image.url(:thumb),
+                  :width   => 50,
+                  :height  => 50
+          }) 
+    end
+    binding.pry
   end
 
   def new

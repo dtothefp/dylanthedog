@@ -2,6 +2,7 @@ class Post < ActiveRecord::Base
   belongs_to :user
   has_many :votes
 
+
   has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "50x50>", :custom => "400X400" }, :default_url => "/images/:style/missing.png"
   
  # gps_jpg = EXIFR::JPEG.new(:image).gps? 
