@@ -1,36 +1,6 @@
-<div style='width: 100%; border:1px solid #000;'>
+<div style='width: 800px; border:1px solid #000; margin: 0 auto;'>
   <div id="map" style='width: 100%; height: 800px;'></div>
 </div>
-
-<% counter = 0 %>
-<% @posts.each do |post| %>
-<ul>
-  <li id="title" data-title="<%= post.title %>"><%= post.title %></li>
-  <li id="img" data-image="<%= post.image.url %>"><%= post.image.url %></li>
-  <li id="lat" data-lat="<%= post.latitude %>"><%= post.latitude %></li>
-  <li id="long" data-long="<%= post.longitude %>"><%= post.longitude %></li>
-  <li><%= image_tag post.image.url(:thumb) %></li>
-  <li id="thumb-url" data-thumb_url="<%= post.image.url(:thumb) %>"><%= post.image.url(:thumb) %></li>
-</ul>
-
-<% counter += 1 %>
-<% end %>
-
-<!-- <div id="map-canvas"></div> -->
-
-// <script>
-//         var title = document.getElementById('title');
-//         var titleData = title.getAttribute('data-title');
-
-//         var title = document.getElementById('lat');
-//         var latData = lat.getAttribute('data-lat');
-
-//         var title = document.getElementById('long');
-//         var longData = long.getAttribute('data-long');
-
-//         var title = document.getElementById('thumb-url');
-//         var thumbData = thumb-url.getAttribute('data-thumb_url'); 
-// </script>
 
 <script>
   handler = Gmaps.build('Google');

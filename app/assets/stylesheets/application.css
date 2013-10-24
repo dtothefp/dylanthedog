@@ -8,17 +8,24 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require_self
- *= require_tree .
+
+  *= require_tree 
+  *= require_self
+  
  */
 
-.wrapper {
-  min-height: 800px;
+
+.conatiner {
+  background-color: blue;
   text-align: center;
 }
 
+.wrapper {
+  background: blue;
+}
+
 nav, footer {
- background-color:#262626;
+ background-color:blue;
  width:100%;
  height:50px;
  box-shadow: 0px 1px 50px #5E5E5E;
