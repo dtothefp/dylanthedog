@@ -1,19 +1,26 @@
 index.html.erb
 
 <%= debug params %>
+<% if !@random_posts.nil? %>
+  <ul>
+    <li><%= image_tag @random_posts.first.image(:medium) %></li>
+      <% if !@user_voted_post_id.include?(@random_posts.first.id) %>
+        <li><%= link_to "Vote", votes_path(:post_id => @random_posts.last.id), :method => :post %></li>
+      <% else %>
+        <li><%= link_to "Reload", votes_path, :method => :post %></li>
+        <li>You have already voted for this post!!</li>
+      <% end %>
+  </ul>
 
-<ul>
-  <li><%= image_tag @random_dogs.first.image(:medium) %></li>
-  <li><%= link_to "Vote", votes_path(:post_id => @random_dogs.first.id), :method => :post %></li>
-</ul>
-
-<ul>
-  <li><%= image_tag @random_dogs.last.image(:medium) %></li>
-  <li><%= link_to "Vote", votes_path(:post_id => @random_dogs.last.id), :method => :post %></li>
-</ul>
-
-<h1>
-    <% if !@vote_message.nil? %>
-     <%= @vote_message %>
-    <% end %>
-</h1>
+  <ul>
+    <li><%= image_tag @random_posts.last.image(:medium) %></li>
+        <% if !@user_voted_post_id.include?(@random_posts.first.id) %>
+          <li><%= link_to "Vote", votes_path(:post_id => @random_posts.last.id), :method => :post %></li>
+        <% else %>
+          <li><%= link_to "Reload", votes_path, :method => :post %></li>
+          <li>You have already voted for this post!!</li>
+        <% end %>
+  </ul>
+<% else %>
+  <h1>You have voted on every post!!!!</h1>
+<% end %>
