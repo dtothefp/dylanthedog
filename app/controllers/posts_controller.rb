@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
 
+# before_action :authenticated!,:authorized!, except: [:index]
+
   def index
     @posts = Post.all
       @hash = Gmaps4rails.build_markers(@posts) do |post, marker|
@@ -7,8 +9,8 @@ class PostsController < ApplicationController
         marker.lng post.longitude.to_f
         marker.picture({
                   :url => post.image.url(:thumb),
-                  :width   => 100,
-                  :height  => 100
+                  :width   => 60,
+                  :height  => 60
           }) 
     end
 
@@ -36,7 +38,7 @@ class PostsController < ApplicationController
     if @post.latitude.nil? || @post.longitude.nil?
       @message = "Please find your location on the map"
     else
-      @message = "Your coordinates uploaded Successfully"
+      @message = "Your Image and GPS MetaData Uploaded Successfully"
     end
   end
 

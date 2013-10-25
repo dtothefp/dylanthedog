@@ -1,18 +1,9 @@
-<ul>
-<li><%= @post.title %></li>
-<li><%= @post.description %></li>
-<li><%= image_tag @post.image.url(:custom) %></li>
-<li><h2><%= @message %></h2></li>
-<% if !@post.latitude.nil? || !@post.longitude.nil?  %>
- <li>Latitude: <%=  @post.latitude %></li>
- <li>Longitude: <%=  @post.longitude %></li>
- <% else %>
- <div id="map-geocoder" style="width: 320px; height: 480px;"></div>
- <div>
-    <input id="address" type="textbox" value="Sydney, NSW">
-    <input type="button" value="Encode" onclick="codeAddress()">
-  </div>
-<% end %>
-</ul>
+<div class="post">
+  <ul>
+    <li class="polaroid first"><%= image_tag @post.image.url(:custom) %></li>
+    <li class="title"><%= @post.title %></li>
+    <li class="message"><%= @message %></li>
+  </ul>
+</div>
 
 

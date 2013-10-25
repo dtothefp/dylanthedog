@@ -1,11 +1,9 @@
-index.html.erb
-
-<%= debug params %>
+<div class="vote">
 <% if !@random_posts.nil? %>
   <ul>
-    <li><%= image_tag @random_posts.first.image(:medium) %></li>
+    <li class="polaroid first"><%= image_tag @random_posts.first.image(:medium) %></li>
       <% if !@user_voted_post_id.include?(@random_posts.first.id) %>
-        <li><%= link_to "Vote", votes_path(:post_id => @random_posts.last.id), :method => :post %></li>
+        <li><%= link_to "Vote", votes_path(:post_id => @random_posts.last.id), :method => :post, :class => "orange-btn" %></li>
       <% else %>
         <li><%= link_to "Reload", votes_path, :method => :post %></li>
         <li>You have already voted for this post!!</li>
@@ -13,9 +11,9 @@ index.html.erb
   </ul>
 
   <ul>
-    <li><%= image_tag @random_posts.last.image(:medium) %></li>
+    <li class="polaroid last"><%= image_tag @random_posts.last.image(:medium) %></li>
         <% if !@user_voted_post_id.include?(@random_posts.first.id) %>
-          <li><%= link_to "Vote", votes_path(:post_id => @random_posts.last.id), :method => :post %></li>
+          <li><%= link_to "Vote", votes_path(:post_id => @random_posts.last.id), :method => :post, :class => "yellow-btn" %></li>
         <% else %>
           <li><%= link_to "Reload", votes_path, :method => :post %></li>
           <li>You have already voted for this post!!</li>
@@ -24,5 +22,6 @@ index.html.erb
 <% else %>
   <h1>You have voted on every post!!!!</h1>
 <% end %>
-<img src="http://maps.google.com/maps/api/staticmap?center=40.714728,-73.998672&markers=icon:http://chart.apis.google.com/chart?chst=d_map_pin_icon%26chld=cafe%257C996600%7C
-224+West+20th+Street+NY%7C75+9th+Ave+NY%7C700+E+9th+St+NY|40.714728,-73.998672&zoom=12&size=400x400&sensor=false"></img>
+</div>
+
+

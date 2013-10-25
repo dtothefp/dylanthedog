@@ -1,4 +1,7 @@
 class VotesController < ApplicationController
+
+  # before_action :authenticated!, :authorized!
+
   def new
     @random_posts = Post.order("RANDOM()").where("user_id != #{User.find(session[:user_id]).id}").limit(2).load
     @user_voted_post_id = []

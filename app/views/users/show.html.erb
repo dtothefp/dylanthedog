@@ -1,11 +1,11 @@
-
-<h1>Current user: <%= current_user.first_name %></h1>
-
-<ul>
-<li><%= @user.first_name %></li>
-<li><%= @user.last_name %></li>
-<li><%= @user.email %></li>
-</ul>
-
-<%= link_to "Edit User: #{@user.first_name}", edit_user_path(@user) %>
-<%= link_to "Delete User Account", user_path(@user), method: :delete %>
+<div class="user">
+  <h1>Hey <%= current_user.first_name %>, Welcome Back to DylanTheDog</h1>
+  <ul>
+    <li>You're logged in as: <%= @user.first_name %> <%= @user.last_name %></li>
+    <li><%= @user.email %></li>
+  </ul>
+  <div class="btns">
+  <%= link_to "Edit Your Profile", edit_user_path(@user) %>
+  <%= link_to "Delete Your Account", user_path(@user), method: :delete %>
+  </div>
+</div>

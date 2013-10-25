@@ -1,3 +1,4 @@
+<div class="post">
 <%= form_for @post, html: { multipart: true } do |f| %>
   <%= f.label :post_title %>
   <%= f.text_field :title %>
@@ -10,3 +11,4 @@
 
   <%= f.submit %>
 <% end %>
+</div>
