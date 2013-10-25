@@ -2,6 +2,7 @@
   <ul>
     <li class="polaroid first"><%= image_tag @post.image.url(:custom) %></li>
     <li class="title"><%= @post.title %></li>
+    <li><%= link_to 'Check the Map', posts_path,:class => "btn" %></li>
     <li class="message"><%= @message %></li>
   </ul>
 </div>

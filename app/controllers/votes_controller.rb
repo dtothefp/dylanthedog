@@ -8,7 +8,6 @@ class VotesController < ApplicationController
     User.find(session[:user_id]).voted_posts.each do |voted_post|
     @user_voted_post_id << voted_post.id
     end
-
     render :new
   end
 

@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
-# before_action :authenticated!,:authorized!, except: [:index]
+# before_action :authenticated!, :set_user, :authorized!, except: [:index]
 
   def index
     @posts = Post.all
@@ -22,8 +22,7 @@ class PostsController < ApplicationController
 
   def create
     post = Post.new(post_params)
-    #must add User.find(session[:user_id]).posts << post
-    User.first.posts << post
+    User.find_by(id: session[:user_id]).posts << post
 
     if post.save
       redirect_to post_path(post)
