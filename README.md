@@ -6,6 +6,8 @@
 
 DylanTheDog was developed to create a platform for users to upload location tagged images, in order to share them with members of their community.  The app uses Ruby on Rails with a selection of Ruby Gems to access geotag metadata from images and to display uploaded photos by location as Markers on a Google Map.
 
+![image](./app/assets/images/DTD_screenshot.png)
+
 1) Gemfile
 ```bash
 gem 'paperclip', '~> 3.0'
@@ -32,7 +34,7 @@ gem "gmaps4rails", "~> 2.0.3"
 
 - gmaps4rails
   - Creates a Hash of custom map marker objects and plots them on the map by location
-  - In Post Contoller:
+  - In Post Controller:
 
 ```bash
 @hash = Gmaps4rails.build_markers(@posts) do |post, marker|
@@ -60,84 +62,23 @@ gem "gmaps4rails", "~> 2.0.3"
     });
 ```
 
-![image](./screenshots/todays_folder.png)
-
-######Check out your development branch and make sure you are on the right branch
-
-```bash
-git branch development
-git checkout development
-git branch
-```
-
-![image](./screenshots/checkout.png)
+- paperclip combined with aws-sdk 
+ - paperclip used for image uploading, processing, and storing
+ -aws-sdk used in Production of Heroku to Cloud Host images through Amazon S3
 
 
-######Move to your __OWN PERSONAL DIRECTORY__ and do the work
-- Do NOT edit any files that are not in your personal directory
-- Remember to save all your files
-- Instructions for the assignment are [in the w01/d01 directory](https://github.com/ga-students/WDI_NYC_Array_Work/tree/master/w01/d01)
+######My First Project Experience
+Before coming to WDI I was self taught in HTML and CSS, but had little other programming knowledge.  I had the idea for DylanTheDog from my roommate who just moved back from South Africa.  His dog Dylan was born in South Africa and spent his first year of life traveling through many countries in Africa, playing with wild township dogs, and hiding in the back of a truck when passing through African borders.
 
-![image](./screenshots/own_directory.png)
-![image](./screenshots/do_work.png)
-
-
-
-######Check status and add files to the stage
-
-```bash
-git status
-git add .
-git status
-```
-
-![image](./screenshots/git_add.png)
+The concept for the project presented many challenging aspects that I think will be very useful in future web development projects.  The most significant of these were:
+- Database schema that stores Users, stores Posts/Images, and Joins Users with Posts in order to keep track of User & Post votes. 
+- Custom coded voting mechanism not using any gems.
+- Using EXIFR Gem to extract image metadata.
+- Learning a significant amount about Google Maps API and using gmap4rails Gem to display custom Marker images by location on a map.
 
 
-######Commit changes and push to Github
+######Challenges Around the Way
+The custom voting mechanism was a bit of a challenge and took a few iterations to do it in a RESTful way. Also, learning how to manipulate the Gems EXIFR and gmaps4rails was difficult because documentation is not thorough, in the case of EXIFR, and often written in a way that only a much more experienced developer could understand without a lot of StackOverflow'ing.  Also, Google Maps API is manipulated primarily through JavaScript, which we haven't learned yet at WDI.
 
-```bash
-git commit -m "Complete HW 01-01"
-git push origin development
-```
-
-![image](./screenshots/git_commit_push.png)
-
-
-######Merge changes in to master and push to Github
-
-```bash
-git checkout master
-git branch
-git merge development
-git push origin master
-```
-
-![image](./screenshots/merge_master.png)
-
-
-
-######Make ONE pull request
-
----
-
-![image](./screenshots/pull_request_01.png)
-
----
-
-![image](./screenshots/pull_request_02.png)
-
----
-
-![image](./screenshots/pull_request_03.png)
-
----
-###### Make your pull request
-- Title your pull request with the week and day (for example `HW w01-d01`)
-- You MUST inlucude comments on your successes and challenges
-
-![image](./screenshots/pull_request_04.png)
-
----
-
-You're DONE!
+######Future Plans for DylanTheDog Expansion
+In the current version location mapping is only available for images uploaded with GPS metadata include.  Images without metadata are flagged, but there is not yet a method for the users to choose the location where they took the picture, and to update the image information in the database.  Also, functionality for the map Marker images is minimal at this point, and I would like to implement hover effects for images enlargement and displaying image information.
