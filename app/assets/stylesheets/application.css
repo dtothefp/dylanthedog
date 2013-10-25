@@ -8,27 +8,68 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
-
-  *= require_tree 
-  *= require_self
+ 
+ *= require_tree .
+ *= require_self
   
  */
 
+ * {
+  box-sizing: border-box;
+ }
 
-.conatiner {
-  background-color: blue;
-  text-align: center;
+* {
+  margin: 0;
+}
+html, body {
+  height: 100%;
+}
+.container {
+  min-height: 100%;
+  /* equal to footer height */
+  margin-bottom: -50px; 
+  margin-top: 85px;
+}
+.container:after {
+  content: "";
+  display: block;
+}
+footer, .container:after {
+  /* .push must be the same height as footer */
+  height: 50px; 
 }
 
 .wrapper {
-  background: blue;
+  background: grey;
+  margin: 0;
 }
 
-nav, footer {
- background-color:blue;
+.container .sixteen.columns {
+  width: 960px;
+}
+
+a {
+  text-decoration: none;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  z-index: 9999;
+}
+
+header, footer {
+ background-color:#262626;
  width:100%;
  height:50px;
  box-shadow: 0px 1px 50px #5E5E5E;
+}
+
+.inner-wrapper {
+  width: 960px;
+  margin: 0 auto;
+  overflow: hidden;
+  padding-top: 12px;
 }
 
 ul {
@@ -43,10 +84,24 @@ nav li {
   display: inline;
   padding: 10px;
   font-size: 18px;
+  color: #fff;
 }
 
-nav li a {
+.logo {
+  float: left;
+  font-size: 28px;
+}
+
+nav ul {
+  float: right;
+}
+
+nav li a, a:visited {
   color: #fff;
-    text-decoration: none;
+  text-decoration: none;
+}
+
+nav li a:hover, a:focus {
+  color:blue;
 }
 

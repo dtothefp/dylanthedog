@@ -16,31 +16,38 @@
       <script src='//google-maps-utility-library-v3.googlecode.com/svn/trunk/richmarker/src/richmarker-compiled.js' type='text/javascript'></script>
   </head>
   <body data-no-turbolink>
-     <nav><ul>
-        <% if logged_in? %>
-          <li><%= link_to 'Create Post', new_post_path %></li>
-          <li><%= link_to 'Logout', session_path, :method => :delete %></li>
-          <li><%= link_to 'Vote', new_vote_path %></li>
-          <li><%= link_to 'Location Map', posts_path %></li>
-          <input type="button" onclick="display_alert()" value="Javascript Alert">
-          <input type="button" id="alert" value="JQuery Alert">
-        <% else %>
-          <input type="button" onclick="display_alert()" value="Javascript Alert">
-          <input type="button" id="alert" value="JQuery Alert">
-          <li><%= link_to 'Sign-Up', new_user_path %></li>
-          <li><%=  link_to 'Login', new_session_path %></li>
-          <li><%= link_to 'Vote', new_vote_path %></li>
-          <li><%= link_to 'Location Map', posts_path %></li>
-        <% end %>
-        </ul>
-      </nav>
+    <header>
+      <div class="inner-wrapper">
+          <div class="logo"><%= link_to 'DylanTheDog', new_post_path %></div>
+          <nav>
+           <ul>
+            <% if logged_in? %>
+              <li><%= link_to 'Create Post', new_post_path %></li>
+              <li><%= link_to 'Logout', session_path, :method => :delete %></li>
+              <li><%= link_to 'Vote', new_vote_path %></li>
+              <li><%= link_to 'Location Map', posts_path %></li>
+            <% else %>
+              <li><%= link_to 'Sign-Up', new_user_path %></li>
+              <li><%=  link_to 'Login', new_session_path %></li>
+              <li><%= link_to 'Vote', new_vote_path %></li>
+              <li><%= link_to 'Location Map', posts_path %></li>
+            <% end %>
+           </ul>
+          </nav>
+        </div>
+      </header>
     <div class="container">
-      <div class="sixteen columns wrapper">
+      <div class="sixteen columns alpha omega wrapper">
         <p>Debug -- user session: <%= debug session[:user_id] %></p>
         <%= yield %>
       </div>
     </div>
-    <footer></footer>
+    <footer>
+      <div class="inner-wrapper">
+        <div class="copyright">DylanTheDog<%= Time.now.year %></div>
+        <div class="dfp-dev"><%= link_to 'DFP Dev', {url: "http://dfpdev.com/" } %></div>
+      </div>
+    </footer>
   </body>
 </html>
 
