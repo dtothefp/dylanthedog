@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
-# before_action :authenticated!, :set_user, :authorized!, except: [:index]
+before_action :authenticated!, :authorized!, except: [:index]
 
   def index
     @posts = Post.all
