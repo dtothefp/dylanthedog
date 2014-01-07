@@ -15,6 +15,7 @@ gem 'aws-sdk', '~> 1.22.1'
 gem 'exifr', '~> 1.1.3'
 gem "gmaps4rails", "~> 2.0.3"
 gem "bootstrap-sass", github:'thomas-mcdonald/bootstrap-sass', branch: '3'
+gem "rails-erd"
 
 group :doc do
   gem 'sdoc', require: false
