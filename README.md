@@ -4,7 +4,7 @@
 
 DylanTheDog was developed to create a platform for users to upload location tagged images, in order to share them with members of their community.  The app uses Ruby on Rails with a selection of Ruby Gems to access geotag metadata from images and to display uploaded photos by location as Markers on a Google Map.
 
---[http://dylan-the-dog.herokuapp.com](http://dylan-the-dog.herokuapp.com/)
+[http://dylan-the-dog.herokuapp.com](http://dylan-the-dog.herokuapp.com/)
 
 ![image](./app/assets/images/DTD_screenshot.png)
 
