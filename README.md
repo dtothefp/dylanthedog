@@ -6,7 +6,7 @@ DylanTheDog was developed to create a platform for users to upload location tagg
 
 [http://dylan-the-dog.herokuapp.com](http://dylan-the-dog.herokuapp.com/)
 
-![image](./app/assets/images/DTD_screenshot.png)
+![image](https://dl.dropboxusercontent.com/u/8073874/d-tha-d.png)
 
 1) Gemfile
 ```bash
